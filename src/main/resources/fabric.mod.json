@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "retclient",
+  "version": "1.0.0",
+  "name": "Ret Client",
+  "description": "Client of Ret (skull emoji)",
+  "authors": [
+    "Retucio"
+  ],
+  "contact": {
+    "sources": "https://github.com/retuci0/ret-client"
+  },
+  "license": "GNU",
+  "icon": "assets/ret/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.retclient.Main"
+    ]
+  },
+  "mixins": [
+    "retclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "fabric-api": ">=0.96.3",
+    "minecraft": "1.20.4",
+    "java": ">=16"
+  }
+}

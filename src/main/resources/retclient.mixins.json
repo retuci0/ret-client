@@ -1,0 +1,50 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.retclient.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+	"interfaces.ILivingEntity",
+	"interfaces.IMinecraftClient",
+	"interfaces.IExplosionS2CPacket",
+	"interfaces.IEntityVelocityUpdateS2CPacket"
+  ],
+  "client": [
+	"AbstractBlockStateMixin",
+	"AbstractClientPlayerEntityMixin",
+	"AbstractSignEditScreenMixin",
+	"BackgroundRendererMixin",
+	"BlockMixin",
+	"BlockModelRendererMixin",
+	"CactusBlockMixin",
+	"ChatHudMixin",
+	"ChatInputSuggestorMixin",
+	"ChatScreenMixin",
+	"ChunkOcclusionDataBuilderMixin",
+	"ClientConnectionMixin",
+	"ClientPlayerEntityMixin",
+	"ClientPlayerInteractionManagerMixin",
+	"DeathScreenMixin",
+	"EntityMixin",
+	"EntityRendererMixin",
+	"FluidBlockMixin",
+	"GameRendererMixin",
+	"HungerManagerMixin",
+	"IngameHudMixin",
+	"KeyboardMixin",
+	"LightmapTextureManagerMixin",
+	"LivingEntityMixin",
+	"MinecraftClientMixin",
+	"MouseMixin",
+	"MultiplayerScreenMixin",
+	"PlayerEntityMixin",
+	"RenderTickCounterMixin",
+	"ScreenMixin",
+	"SimpleOptionMixin",
+	"TitleScreenMixin",
+	"WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
