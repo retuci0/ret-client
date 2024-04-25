@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.retucio.retclient.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinClientConnection"
+  ],
+  "client": [
+    "MixinClientPlayerEntity",
+    "MixinClientPlayNetworkHandler",
+    "MixinInGameHud",
+    "MixinKeyboard",
+    "MixinRenderTickCounter",
+    "MixinWorldRenderer",
+    "accessors.AbstractBlockAccessor",
+    "accessors.LivingEntityAccessor",
+    "accessors.PlayerMoveC2SPacketAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
