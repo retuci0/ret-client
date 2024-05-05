@@ -11,16 +11,16 @@ import net.minecraft.block.Block;
 
 public class IceSpeed extends Module {
 	
-	private Setting<Float> speed = register(new Setting<>("Speed", 0.4f, 0.1f, 2f, v -> true));
+	private Setting<Float> slipperiness = register(new Setting<>("Slipperiness", 0.4f, 0.1f, 2f, v -> true));
 
     public IceSpeed() {
-        super("IceSpeed", "Makes ice speedy", Category.MOVEMENT, true, false, false);
+        super("IceSpeed", "Makes travel by ice much faster. Very high and very low amounts may trigger the rubberband", Category.MOVEMENT, true, false, false);
     }
     
     @Override
     public void onUpdate() {
         if (nullCheck()) return;
-        setSlipperiness(speed.getValue());
+        setSlipperiness(slipperiness.getValue());
     }
     
     @Override

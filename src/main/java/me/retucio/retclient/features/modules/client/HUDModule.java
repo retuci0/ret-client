@@ -14,7 +14,7 @@ public class HUDModule extends Module {
     public void onRender2D(Render2DEvent event) {
         event.getContext().drawTextWithShadow(
                 mc.textRenderer,
-                RetClient.NAME + " " + RetClient.VERSION,
+                RetClient.NAME + " v" + RetClient.VERSION,
                 2, 2,
                 -1
         );

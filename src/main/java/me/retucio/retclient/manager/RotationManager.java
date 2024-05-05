@@ -5,6 +5,7 @@ import net.minecraft.util.math.Vec3d;
 import me.retucio.retclient.util.MathUtil;
 import me.retucio.retclient.util.traits.Util;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 
 public class RotationManager implements Util {
 	
@@ -71,6 +72,27 @@ public class RotationManager implements Util {
 
     public void setPitch(float pitch) {
         this.pitch = pitch;
+    }
+    
+    public static float[] getSmoothRotations(LivingEntity entity) {
+        double deltaX = entity.getPos().getX() + (entity.getPos().getX() - entity.lastRenderX) - mc.player.getPos().getX();
+        double deltaY = entity.getPos().getY() - 3.5 + entity.getEyeHeight(entity.getPose()) - mc.player.getPos().getY() + mc.player.getEyeHeight(mc.player.getPose());
+        double deltaZ = entity.getPos().getZ() + (entity.getPos().getZ() - entity.lastRenderZ) - mc.player.getPos().getZ();
+        
+        double distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaZ, 2));
+
+        float yaw = (float) Math.toDegrees(-Math.atan(deltaX / deltaZ));
+        float pitch = (float) -Math.toDegrees(Math.atan(deltaY / distance));
+
+        if (deltaX < 0 && deltaZ < 0) {
+            yaw = (float) (90 + Math.toDegrees(Math.atan(deltaZ / deltaX)));
+        } 
+        
+        else if (deltaX > 0 && deltaZ < 0) {
+            yaw = (float) (-90 + Math.toDegrees(Math.atan(deltaZ / deltaX)));
+        }
+
+        return new float[] {yaw, pitch};
     }
 
 }

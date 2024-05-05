@@ -17,7 +17,7 @@ import me.retucio.retclient.features.modules.Module;
 public class GUI extends Screen {
 	
     @SuppressWarnings("unused")
-	private static GUI oyveyGui;
+	private static GUI retGUI;
     private static GUI INSTANCE;
 
     static {
@@ -28,7 +28,7 @@ public class GUI extends Screen {
 	private final ArrayList<Component> components = new ArrayList();
 
     public GUI() {
-        super(Text.literal("OyVey"));
+        super(Text.literal("Ret"));
         
         setInstance();
         load();

@@ -3,15 +3,15 @@
   "id": "ret",
   "version": "0.1",
   "name": "retclient",
-  "description": "shitty client skidded from oyvey",
+  "description": "shittiest oyvey paste out there",
   "authors": [
     "retucio",
-    "3arthqu4ke",
-    "alpha432",
-    "cattyn"
+    "3arthqu4ke (for the original oyvey)",
+    "alpha432 (for the oyvey port)",
+    "cattyn (for the oyvey port)"
   ],
   "contact": {
-    "repo": "https://github.com/retucio/ret-client"
+    "repo": "https://github.com/retuci0/ret-client"
   },
   "license": "MIT",
   "environment": "client",

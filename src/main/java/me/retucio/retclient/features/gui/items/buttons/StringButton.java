@@ -1,5 +1,7 @@
 package me.retucio.retclient.features.gui.items.buttons;
 
+import org.lwjgl.glfw.GLFW;
+
 import me.retucio.retclient.RetClient;
 import me.retucio.retclient.features.gui.GUI;
 import me.retucio.retclient.features.modules.client.ClickGUI;
@@ -62,20 +64,19 @@ public class StringButton extends Button {
     @Override
     public void onKeyTyped(char typedChar, int keyCode) {
         if (this.isListening) {
-        	
             if (SharedConstants.isValidChar(typedChar)) {
                 this.setString(this.currentString.string() + typedChar);
             }
         }
     }
 
-    @Override public void onKeyPressed(int key) {
+    @Override 
+    public void onKeyPressed(int key) {
         if (isListening) {
-        	
             switch (key) {
                 case 1: { return; }
-                case 28: { this.enterString(); }
-                case 14: { this.setString(StringButton.removeLastChar(this.currentString.string())); }
+                case GLFW.GLFW_KEY_ENTER: { this.enterString(); } // so it seems it didn't work because for some reason this was set to 28, now it's set to 257
+                case GLFW.GLFW_KEY_BACKSPACE: { this.setString(StringButton.removeLastChar(this.currentString.string())); } // this was set to 14 and now it's 259, so that fixed it
             }
         }
     }
@@ -86,7 +87,6 @@ public class StringButton extends Button {
     }
 
     private void enterString() {
-    	
         if (this.currentString.string().isEmpty()) {
             this.setting.setValue(this.setting.getDefaultValue());
         } 

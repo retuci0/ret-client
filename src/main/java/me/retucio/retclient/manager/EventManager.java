@@ -8,9 +8,11 @@ import me.retucio.retclient.event.events.*;
 import me.retucio.retclient.features.Feature;
 import me.retucio.retclient.features.command.Command;
 import me.retucio.retclient.util.models.Timer;
+import net.minecraft.client.util.Icons;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;
 import net.minecraft.util.Formatting;
+import java.io.InputStream;
 
 public class EventManager extends Feature {
 	
@@ -87,6 +89,11 @@ public class EventManager extends Feature {
     @Subscribe 
     public void onKeyInput(KeyEvent event) {
         RetClient.moduleManager.onKeyPressed(event.getKey());
+    }
+    
+    @Subscribe
+    public void onScreenOpen(OpenScreenEvent event) {
+    	
     }
 
     @Subscribe 

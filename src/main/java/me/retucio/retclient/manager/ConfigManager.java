@@ -17,6 +17,7 @@ import java.util.List;
 public class ConfigManager {
 	
     private static final Path RET_PATH = FabricLoader.getInstance().getGameDir().resolve("retclient");
+    
     private static final Gson gson = new GsonBuilder().setLenient().setPrettyPrinting().create();
     private final List<Jsonable> jsonables = List.of(RetClient.friendManager, RetClient.moduleManager, RetClient.commandManager);
 

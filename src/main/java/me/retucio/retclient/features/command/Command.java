@@ -5,7 +5,6 @@ import me.retucio.retclient.features.Feature;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-
 public abstract class Command extends Feature {
 	
     protected String name;
@@ -26,11 +25,14 @@ public abstract class Command extends Feature {
     public static void sendMessage(String message) {
         Command.sendSilentMessage(RetClient.commandManager.getClientMessage() + " " + Formatting.GRAY + message);
     }
+    
+    public static void sendChatMessage(String message) {
+    	if (nullCheck()) return;
+    	mc.player.networkHandler.sendChatMessage(message);
+    }
 
     public static void sendSilentMessage(String message) {
-        if (Command.nullCheck()) {
-            return;
-        }
+        if (Command.nullCheck()) return;
         mc.inGameHud.getChatHud().addMessage(Text.literal(message));
     }
 

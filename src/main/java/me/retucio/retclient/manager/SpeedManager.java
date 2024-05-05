@@ -21,7 +21,7 @@ public class SpeedManager extends Feature {
     public boolean wasFirstJump = true;
     public double speedometerCurrentSpeed = 0.0;
     
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	public HashMap<PlayerEntity, Double> playerSpeeds = new HashMap();
 
     public static void setDidJumpThisTick(boolean val) {

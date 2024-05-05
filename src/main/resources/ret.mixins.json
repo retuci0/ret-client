@@ -4,17 +4,27 @@
   "package": "me.retucio.retclient.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinClientConnection"
+    "ClientConnectionMixin"
   ],
   "client": [
-    "MixinClientPlayerEntity",
-    "MixinClientPlayNetworkHandler",
-    "MixinInGameHud",
-    "MixinKeyboard",
-    "MixinRenderTickCounter",
-    "MixinWorldRenderer",
+    "ClientPlayerEntityMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "DeathMessageS2CPacketMixin",
+    "HealthUpdateS2CPacketMixin",
+    "InGameHUDMixin",
+    "KeyboardMixin",
+    "RenderTickCounterMixin",
+    "TitleScreenMixin",
+    "TridentItemMixin",
+    "WorldRendererMixin",
+
     "accessors.AbstractBlockAccessor",
+    "accessors.ClientPlayerEntityAccessor",
+    "accessors.ClientPlayerInteractionManagerAccessor",
+    "accessors.EntityVelocityUpdateS2CPacketAccessor",
+    "accessors.ExplosionS2CPacketAccessor",
     "accessors.LivingEntityAccessor",
+    "accessors.PlayerPositionLookS2CPacketAccessor",
     "accessors.PlayerMoveC2SPacketAccessor"
   ],
   "injectors": {

@@ -5,7 +5,7 @@ import net.minecraft.network.packet.Packet;
 
 public abstract class PacketEvent extends Event {
 
-    private final Packet<?> packet;
+    private Packet<?> packet;
 
     public PacketEvent(Packet<?> packet) {
         this.packet = packet;
@@ -13,6 +13,10 @@ public abstract class PacketEvent extends Event {
 
     public Packet<?> getPacket() {
         return packet;
+    }
+    
+    public void setPacket(Packet<?> packet) {
+    	this.packet = packet;
     }
 
     public static class Receive extends PacketEvent {

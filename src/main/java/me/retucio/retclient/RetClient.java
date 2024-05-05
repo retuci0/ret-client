@@ -2,18 +2,22 @@ package me.retucio.retclient;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import me.retucio.retclient.manager.*;
 
+// hello big guy what you doing here
+
 public class RetClient implements ModInitializer, ClientModInitializer {
 	
     public static final String NAME = "Ret Client";
-    public static final String VERSION = "0.1 [1.20.4]";
+    public static final String VERSION = "0.2 [1.20.4]";
 
     public static float TIMER = 1f;
-    public static final Logger LOGGER = LogManager.getLogger("OyVey");
+    public static final Logger LOGGER = LogManager.getLogger("Ret");
     
     public static ServerManager serverManager;
     public static ColorManager colorManager;
@@ -27,7 +31,7 @@ public class RetClient implements ModInitializer, ClientModInitializer {
     public static ModuleManager moduleManager;
     public static ConfigManager configManager;
 
-
+    
     @Override 
     public void onInitialize() {
         eventManager = new EventManager();

@@ -1,4 +1,4 @@
-package me.retucio.retclient.features.modules.misc;
+package me.retucio.retclient.features.modules.client;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,7 +14,7 @@ public class MCF extends Module {
     private boolean pressed;
     
     public MCF() {
-        super("MCF", "Friends", Category.MISC, true, false, false);
+        super("MiddleClickFriend", "Add friends by middle-clicking them", Category.MISC, true, false, false);
     }
 
     @Override 
@@ -44,8 +44,6 @@ public class MCF extends Module {
             
         } 
         
-        else {
-            pressed = false;
-        }
+        else pressed = false;
     }
 }

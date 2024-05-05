@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin( ClientConnection.class )
-public class MixinClientConnection {
+public class ClientConnectionMixin {
 
     @Shadow private Channel channel;
     @Shadow @Final private NetworkSide side;

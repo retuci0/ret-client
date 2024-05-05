@@ -206,13 +206,15 @@ public class Module extends Feature implements Jsonable {
     }
 
     public enum Category {
+    	CHAT("Chat"),
+    	CLIENT("Client"),
         COMBAT("Combat"),
+        EXPLOIT("Exploit"),
         MISC("Misc"),
-        RENDER("Render"),
         MOVEMENT("Movement"),
-        PLAYER("Player"),
-        CLIENT("Client");
-
+        RENDER("Render"),
+        PLAYER("Player");
+    	
         private final String name;
 
         Category(String name) {

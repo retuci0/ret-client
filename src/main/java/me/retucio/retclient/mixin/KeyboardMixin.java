@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import me.retucio.retclient.event.events.KeyEvent;
 
 @Mixin(Keyboard.class)
-public class MixinKeyboard {
+public class KeyboardMixin {
 	
     @Inject(method = "onKey", at = @At("TAIL"), cancellable = true)
     private void onKey(long windowPointer, int key, int scanCode, int action, int modifiers, CallbackInfo ci) {

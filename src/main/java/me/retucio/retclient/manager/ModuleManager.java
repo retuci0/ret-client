@@ -7,11 +7,14 @@ import me.retucio.retclient.event.events.Render2DEvent;
 import me.retucio.retclient.event.events.Render3DEvent;
 import me.retucio.retclient.features.Feature;
 import me.retucio.retclient.features.modules.Module;
+//import me.retucio.retclient.features.modules.chat.*;
 import me.retucio.retclient.features.modules.client.*;
 import me.retucio.retclient.features.modules.combat.*;
+import me.retucio.retclient.features.modules.exploit.*;
 import me.retucio.retclient.features.modules.misc.*;
 import me.retucio.retclient.features.modules.movement.*;
 import me.retucio.retclient.features.modules.player.*;
+import me.retucio.retclient.features.modules.render.*;
 import me.retucio.retclient.util.traits.Jsonable;
 import me.retucio.retclient.util.traits.Util;
 
@@ -26,44 +29,138 @@ public class ModuleManager implements Jsonable, Util {
     public List<Module> modules = new ArrayList<>();
     public List<Module> sortedModules = new ArrayList<>();
     public List<String> sortedModulesABC = new ArrayList<>();
+    
+    // and there it goes
+    
+    // client
+    public static ClickGUI clickGUI = new ClickGUI();
+    public static HUDModule hudModule = new HUDModule();
+    public static MCF mcf = new MCF();
+    
+    // combat
+    public static AimBot aimBot = new AimBot();
+    public static AutoTotem autoTotem = new AutoTotem();
+    public static Criticals criticals = new Criticals();
+    public static TriggerBot triggerBot = new TriggerBot();
+    
+    // exploit
+    public static CoordLogger coordLogger = new CoordLogger();
+    public static Crasher crasher = new Crasher();
+    public static HitboxDesync hitboxDesync = new HitboxDesync();
+    public static InstantBowKill instantBowKill = new InstantBowKill();
+    public static DeathScreenInvincibility invincibility = new DeathScreenInvincibility();
+    public static PortalInvincibility portalGodMode = new PortalInvincibility();
+    
+    // misc
+    public static ColoredSigns coloredSigns = new ColoredSigns();
+    public static PacketCanceller packetCanceller = new PacketCanceller();
+    public static Timer timer = new Timer();
+    
+    // movement
+    public static AirJump airJump = new AirJump();
+    public static BoatFly boatFly = new BoatFly();
+    public static ElytraFly elytraFly = new ElytraFly();
+    public static EntitySpeed entitySpeed = new EntitySpeed();
+    public static Jesus jesus = new Jesus();
+    public static FastJump fastJump = new FastJump();
+    public static FastSwim fastSwim = new FastSwim();
+    public static Flight flight = new Flight();
+    public static IceSpeed iceSpeed = new IceSpeed();
+    public static InventoryMove invMove = new InventoryMove();
+    public static ReverseStep reverseStep = new ReverseStep();
+    public static Spider spider = new Spider();
+    public static Step step = new Step();
+    public static TridentBoost tridentBoost = new TridentBoost();
+    
+    // player
+    public static AntiHunger antiHunger = new AntiHunger();
+    public static AutoMount autoMount = new AutoMount();
+    public static FakePlayer fakePlayer = new FakePlayer();
+    public static FastBreak fastBreak = new FastBreak();
+    public static FastPlace fastPlace = new FastPlace();
+    public static NoFall noFall = new NoFall();
+    public static Velocity velocity = new Velocity();
+    
+    // render
+    public static FullBright fullBright = new FullBright();
+    public static Zoom zoom = new Zoom();
 
     public void init() {
+    	initChat();
     	initClient();
     	initCombat();
+    	initExploit();
     	initMisc();
     	initMovement();
     	initPlayer();
+    	initRender();
+    }
+    
+    public void initChat() {
+//    	modules.add(new Greeter());
     }
     
     public void initClient() {
-    	modules.add(new HUDModule());
-    	modules.add(new ClickGUI());
+    	modules.add(clickGUI);
+    	modules.add(hudModule);
+    	modules.add(mcf);
     }
     
     public void initCombat() {
-    	modules.add(new AutoTotem());
-    	modules.add(new Criticals());
+    	modules.add(aimBot);
+    	modules.add(autoTotem);
+    	modules.add(criticals);
+    	modules.add(triggerBot);
     }
     
+    public void initExploit() {
+    	modules.add(coordLogger);
+    	modules.add(crasher);
+    	modules.add(hitboxDesync);
+    	modules.add(instantBowKill);
+    	modules.add(invincibility);
+    	modules.add(portalGodMode);
+    }
+
     public void initMisc() {
-    	modules.add(new MCF());
+    	modules.add(coloredSigns);
+    	modules.add(packetCanceller);
+    	modules.add(timer);
     }
     
     public void initMovement() {
-    	modules.add(new IceSpeed());
-    	modules.add(new NoJumpDelay());
-    	modules.add(new ReverseStep());
-    	modules.add(new Step());
+    	modules.add(airJump);
+    	modules.add(boatFly);
+    	modules.add(elytraFly);
+    	modules.add(entitySpeed);
+    	modules.add(jesus);
+    	modules.add(fastJump);
+    	modules.add(fastSwim);
+    	modules.add(flight);
+    	modules.add(iceSpeed);
+    	modules.add(invMove);
+    	modules.add(reverseStep);
+    	modules.add(spider);
+    	modules.add(step);
+    	modules.add(tridentBoost);
     }
     
     public void initPlayer() {
-    	modules.add(new FastPlace());
-    	modules.add(new NoFall());
-    	modules.add(new Velocity());
+    	modules.add(antiHunger);
+    	modules.add(autoMount);
+    	modules.add(fakePlayer);
+    	modules.add(fastPlace);
+    	modules.add(fastBreak);
+    	modules.add(noFall);
+    	modules.add(velocity);
     }
-
+    
+    public void initRender() {
+    	modules.add(fullBright);
+    	modules.add(zoom);
+    }
+    
     public Module getModuleByName(String name) {
-    	
         for (Module module : this.modules) {
             if (!module.getName().equalsIgnoreCase(name)) continue;
             return module;
